@@ -1,0 +1,73 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "qlEzrgKgIkh7y0ePm9BNo1cNdXo=",
+			"path": "github.com/gin-contrib/sse",
+			"revision": "43f0f29dbd2b3f0feeebff91fd9cda22db296938",
+			"revisionTime": "2019-09-05T05:13:34Z"
+		},
+		{
+			"checksumSHA1": "ShezY3r0mXPI1fCNLPqe5c1jBoo=",
+			"path": "github.com/gin-gonic/gin",
+			"revision": "0d12918b0ad1dbf28f61d3d053ae035dbd22a4eb",
+			"revisionTime": "2020-02-13T12:23:29Z"
+		},
+		{
+			"checksumSHA1": "VGrSfi6ORVO4G4bdQYtp2cZVEdI=",
+			"path": "github.com/gin-gonic/gin/binding",
+			"revision": "0d12918b0ad1dbf28f61d3d053ae035dbd22a4eb",
+			"revisionTime": "2020-02-13T12:23:29Z"
+		},
+		{
+			"checksumSHA1": "/81vKkFpIIiNB/QszbfwiWfX1tk=",
+			"path": "github.com/gin-gonic/gin/internal/bytesconv",
+			"revision": "0d12918b0ad1dbf28f61d3d053ae035dbd22a4eb",
+			"revisionTime": "2020-02-13T12:23:29Z"
+		},
+		{
+			"checksumSHA1": "rST0S8cuVbM57VmJhWXhKNUkKTc=",
+			"path": "github.com/gin-gonic/gin/internal/json",
+			"revision": "0d12918b0ad1dbf28f61d3d053ae035dbd22a4eb",
+			"revisionTime": "2020-02-13T12:23:29Z"
+		},
+		{
+			"checksumSHA1": "rEjCbyKnZ5XzIRQ3E3qhxqNiYoI=",
+			"path": "github.com/gin-gonic/gin/render",
+			"revision": "0d12918b0ad1dbf28f61d3d053ae035dbd22a4eb",
+			"revisionTime": "2020-02-13T12:23:29Z"
+		},
+		{
+			"checksumSHA1": "Q3FteGbNvRRUMJqbYbmrcBd2DMo=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "d23c5127dc24889085f8ccea5c9d560a57a879d8",
+			"revisionTime": "2020-01-28T18:10:23Z"
+		},
+		{
+			"checksumSHA1": "CQ794EIFp/4zTVi4redzOXOPY8k=",
+			"path": "github.com/mattn/go-isatty",
+			"revision": "cb30d6282491c185f77d9bec5d25de1bb61a06bc",
+			"revisionTime": "2020-01-28T10:39:42Z"
+		},
+		{
+			"checksumSHA1": "8mJ7vjP4pj4Y8FH5jVT22mW5acA=",
+			"path": "github.com/ugorji/go/codec",
+			"revision": "42bc974514ff101a54c6b72a0e4dee29d96c0b26",
+			"revisionTime": "2019-08-12T10:43:08Z"
+		},
+		{
+			"checksumSHA1": "bWM+dkEINuGiOIIU4bggjHwiYUU=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "12a6c2dcc1e4cb348b57847c73987099e261714b",
+			"revisionTime": "2020-02-12T08:54:49Z"
+		},
+		{
+			"checksumSHA1": "dIH8v3OdMGX07t3yJGMODGFUKPg=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "53403b58ad1b561927d19068c655246f2db79d48",
+			"revisionTime": "2020-01-21T17:19:40Z"
+		}
+	],
+	"rootPath": "k8s_cloud_build"
+}

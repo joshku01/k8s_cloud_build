@@ -1,10 +1,12 @@
 steps:
   # This step init go app use go install .
   - name: 'gcr.io/cloud-builders/go'
+    id: Install app
     args: ['install', '.']
     env: ['PROJECT_ROOT=hello']
   # This step build go app use go build.
   - name: 'gcr.io/cloud-builders/go'
+    id: Build app
     args: ['build', 'hello']
     env: ['PROJECT_ROOT=hello']
   # This step build the container images .
@@ -13,7 +15,7 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'gcr.io/k8s-0529/hello-go'
+      - 'gcr.io/k8s-0529/hello-gin'
       - '.'
   # this step pushes the images to gcr
   # the PROJECT_ID and SHORT_SHA variables are automatically
@@ -22,4 +24,10 @@ steps:
     id: Push Image
     args:
       - 'push'
-      - 'gcr.io/k8s-0529/hello-go'
+      - 'gcr.io/k8s-0529/hello-gin'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: Create k8s app
+    args: ['set','images','deployment/my-deployment','my-container=gcr.io/k8s-0529/hello-gin']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-b'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=k8s-cluster-1'
