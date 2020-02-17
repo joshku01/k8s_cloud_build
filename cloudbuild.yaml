@@ -1,19 +1,25 @@
 steps:
+  # This step init go app use go install .
   - name: 'gcr.io/cloud-builders/go'
     args: ['install', '.']
     env: ['PROJECT_ROOT=hello']
+  # This step build go app use go build.
   - name: 'gcr.io/cloud-builders/go'
     args: ['build', 'hello']
     env: ['PROJECT_ROOT=hello']
+  # This step build the container images .
   - name: 'gcr.io/cloud-builders/docker'
-    id: Build
+    id: Build Image
     args:
       - 'build'
-      -  '-t'
+      - '-t'
       - 'gcr.io/k8s-0529/helloworld:$SHORT_SHA'
       - '.'
+  # this step pushes the images to gcr
+  # the PROJECT_ID and SHORT_SHA variables are automatically
+  # replaced by cloud build .
   - name: 'gcr.io/cloud-builders/docker'
-    id: Push
+    id: Push Image
     args:
       - 'push'
-      -  'gcr.io/k8s-0529/helloworld:$SHORT_SHA'
+      - 'gcr.io/k8s-0529/helloworld:$SHORT_SHA'
