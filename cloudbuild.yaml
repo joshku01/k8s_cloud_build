@@ -25,7 +25,12 @@ steps:
       - 'gcr.io/k8s-0529/hello-gin'
   - name: 'gcr.io/cloud-builders/kubectl'
     id: Create k8s app
-    args: ['set','images','deployment/my-deployment','my-container=gcr.io/k8s-0529/hello-gin']
+    args:
+      - set
+      - image
+      - deplyment
+      - 'deployment/my-deployment'
+      - 'my-container=gcr.io/k8s-0529/hello-gin'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=k8s-cluster-1'
