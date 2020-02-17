@@ -5,7 +5,15 @@ steps:
   - name: 'gcr.io/cloud-builders/go'
     args: ['build', 'hello']
     env: ['PROJECT_ROOT=hello']
-artifacts:
-  objects:
-    location: 'gs://k8s-0529_cloudbuild/'
-    paths: ['hello']
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Build
+    args:
+      - 'build'
+      -  '-t'
+      - 'gcr.io/k8s-0529/helloworld:$SHORT_SHA'
+      - '.'
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Push
+    args:
+      - 'push'
+      -  'gcr.io/k8s-0529/helloworld:$SHORT_SHA'
