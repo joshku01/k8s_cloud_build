@@ -4,11 +4,9 @@ steps:
     id: Install app
     args: ['install', '.']
     env: ['PROJECT_ROOT=hello']
-  # This step build go app use go build.
-  - name: 'gcr.io/cloud-builders/go'
-    id: Build app
-    args: ['build', 'hello']
-    env: ['PROJECT_ROOT=hello']
+  # Build the module.
+  - name: golang
+    args: ['go', 'build', '.']
   # This step build the container images .
   - name: 'gcr.io/cloud-builders/docker'
     id: Build Image
