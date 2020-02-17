@@ -13,7 +13,7 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'gcr.io/k8s-0529/helloworld:$SHORT_SHA'
+      - 'gcr.io/k8s-0529/hello-go'
       - '.'
   # this step pushes the images to gcr
   # the PROJECT_ID and SHORT_SHA variables are automatically
@@ -22,4 +22,4 @@ steps:
     id: Push Image
     args:
       - 'push'
-      - 'gcr.io/k8s-0529/helloworld:$SHORT_SHA'
+      - 'gcr.io/k8s-0529/hello-go'
