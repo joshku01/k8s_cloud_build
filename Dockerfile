@@ -10,7 +10,8 @@ COPY . /go/src/k8s_cloud_build
 WORKDIR /go/src/k8s_cloud_build
 
 # 進行編譯(名稱為：guava)
-RUN go build -o k8s_cloud_build
+RUN go mod init && go download && go get -u github.com/gin-gonic/gin
+RUN go build -o app
 
 # 最終運行golang 的基底
 FROM alpine
