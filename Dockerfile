@@ -6,12 +6,13 @@ RUN apk add git
 
 ENV GO111MODULE=on
 
-WORKDIR /app
+WORKDIR /app/k8s_cloud_build
 
 COPY go.mod .
 COPY go.sum .
-
 RUN go mod download
+
+COPY . .
 
 # 進行編譯(名稱為：guava)
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
@@ -19,6 +20,8 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
 # 最終運行golang 的基底
 FROM alpine
 
-COPY --from=build /app/k8s_cloud_build /app
+# 設定容器時區(美東)
+
+COPY --from=build /app/k8s_cloud_build/k8s_cloud_build /app/k8s_cloud_build
 
 ENTRYPOINT [ "./k8s_cloud_build" ]
