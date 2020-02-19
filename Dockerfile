@@ -1,17 +1,18 @@
 # 第一層基底
 FROM golang:1.11.2-alpine AS build
 
-# 載入翻譯包
-RUN apk add git \
-    && go get github.com/liuzl/gocc
+ENV GO111MODULE=on
 
 # 複製原始碼
 COPY . /go/src/k8s_cloud_build
 WORKDIR /go/src/k8s_cloud_build
 
+COPY go.mod .
+COPY go.sum .
+RUN go mod download
+
 # 進行編譯(名稱為：guava)
-RUN go mod init && go download && go get -u github.com/gin-gonic/gin
-RUN go build -o app
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
 
 # 最終運行golang 的基底
 FROM alpine
@@ -23,11 +24,7 @@ RUN apk update \
 
 COPY --from=build /go/src/k8s_cloud_build/k8s_cloud_build /app/k8s_cloud_build
 
-## 複製字典檔
-COPY --from=build /go/src/github.com/liuzl/gocc/ /usr/local/share/gocc/
-COPY ./env /app/env
 
-
-WORKDIR /app
+WORKDIR /k8s_cloud_build
 
 ENTRYPOINT [ "./k8s_cloud_build" ]
