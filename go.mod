@@ -9,7 +9,6 @@ require (
 	github.com/mattn/go-isatty v0.0.13-0.20200128103942-cb30d6282491
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
-	github.com/ugorji/go v1.1.8-0.20190812104308-42bc974514ff
 	golang.org/x/sys v0.0.0-20200217220822-9197077df867
 	gopkg.in/yaml.v2 v2.2.8
 )
