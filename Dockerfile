@@ -1,5 +1,5 @@
 # 第一層基底
-FROM golang:1.11.2-alpine AS build
+FROM golang:1.11.4-alpine AS build
 
 # 載入翻譯包
 RUN apk add git
