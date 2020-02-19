@@ -26,4 +26,6 @@ COPY --from=build /go/src/k8s_cloud_build/k8s_cloud_build /app/k8s_cloud_build
 
 WORKDIR /app
 
+EXPOSE 8080
+
 ENTRYPOINT [ "./k8s_cloud_build" ]
