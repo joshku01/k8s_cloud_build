@@ -6,7 +6,7 @@ RUN apk add git
 
 ENV GO111MODULE=on
 
-WORKDIR /app/k8s_cloud_build
+WORKDIR /app
 
 COPY go.mod .
 COPY go.sum .
@@ -22,6 +22,6 @@ FROM alpine
 
 # 設定容器時區(美東)
 
-COPY --from=build /app/k8s_cloud_build/k8s_cloud_build /app/k8s_cloud_build
+COPY --from=build /app/k8s_cloud_build /app/
 
 ENTRYPOINT [ "./k8s_cloud_build" ]
