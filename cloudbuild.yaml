@@ -1,15 +1,15 @@
 steps:
-  # This step init go app use go install .
-  # 安裝app
-  - name: 'gcr.io/cloud-builders/go'
-    id: Install app
-    args: ['install', '.']
-    env: ['PROJECT_ROOT=hello']
   # Build the module.
   # 編譯go 服務
   - name: golang
     args: ['go', 'build', '.']
     env: ['GO111MODULE=on']
+#  # This step init go app use go install .
+#  # 安裝app
+#  - name: 'gcr.io/cloud-builders/go:alpine'
+#    id: Install app
+#    args: ['install', '.']
+#    env: ['PROJECT_ROOT=hello']
   # 建置映像檔
   # This step build the container images .
   - name: 'gcr.io/cloud-builders/docker'
