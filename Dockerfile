@@ -15,17 +15,15 @@ COPY go.sum .
 RUN go mod download
 
 # 進行編譯(名稱為：guava)
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o k8s_gin
 
 # 最終運行golang 的基底
 FROM alpine
 
 # 設定容器時區(美東)
 
-COPY --from=build /go/src/k8s_cloud_build/k8s_cloud_build /app/k8s_cloud_build
+COPY --from=build /go/src/k8s_cloud_build/k8s_gin /app/k8s_gin
 
 WORKDIR /app
 
-EXPOSE 8080
-
-ENTRYPOINT [ "./k8s_cloud_build" ]
+ENTRYPOINT [ "./k8s_gin" ]
